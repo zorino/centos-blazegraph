@@ -11,10 +11,12 @@ WORKDIR /var/graphs
 ENV GRAPH_HOME /var/graphs
 
 # Install bigdata (blazegraph)
-RUN curl -L http://downloads.sourceforge.net/project/bigdata/bigdata/1.5.1/bigdata-bundled.jar -o /opt/bigdata-bundled.jar
+RUN mkdir /opt/blazegraph/
+RUN curl -L http://downloads.sourceforge.net/project/bigdata/bigdata/1.5.1/bigdata-bundled.jar -o /opt/blazegraph/bigdata-bundled.jar
+ADD RWStore.properties /opt/blazegraph/
 
 # Exec on start
-ENTRYPOINT ["java", "-server", "-Xmx4g", "-jar", "/opt/bigdata-bundled.jar"]
+ENTRYPOINT ["java", "-server", "-Xmx4g", "-Dbigdata.propertyFile=/opt/blazegraph/RWStore.properties", "-jar", "/opt/blazegraph/bigdata-bundled.jar "]
 
 # Expose Default Port
 EXPOSE 9999
