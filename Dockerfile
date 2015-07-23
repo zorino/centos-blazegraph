@@ -2,7 +2,7 @@
 FROM centos:centos7
 
 # Install Java
-RUN yum install -y java
+RUN yum install -y java sysstat
 
 # Create volume for graph data
 RUN mkdir /mnt/graphs
