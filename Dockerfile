@@ -10,10 +10,11 @@ VOLUME /mnt/graphs
 WORKDIR /mnt/graphs
 ENV GRAPH_HOME /mnt/graphs
 
-# Install bigdata bundled (blazegraph)
-RUN mkdir /opt/blazegraph/
+# Install bigdata bundled (blazegraph) + utils
+RUN mkdir -p /opt/blazegraph/utils
 RUN curl -L http://downloads.sourceforge.net/project/bigdata/bigdata/1.5.1/bigdata-bundled.jar -o /opt/blazegraph/bigdata-bundled.jar
 ADD RWStore.properties /opt/blazegraph/
+ADD Load-Graph.sh /opt/blazegraph/utils
 RUN chmod -R 755 /opt/blazegraph/
 
 # Exec on start
