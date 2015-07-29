@@ -19,7 +19,7 @@ ADD utils/Blazegraph-Starter.sh /opt/blazegraph/utils/
 RUN chmod -R 755 /opt/blazegraph/
 
 # Exec on start
-ENTRYPOINT ["java", "-server", "-Xmx4g", "-Dbigdata.propertyFile=/opt/blazegraph/RWStore.properties", "-jar", "/opt/blazegraph/bigdata-bundled.jar"]
+# ENTRYPOINT ["java", "-server", "-Xmx4g", "-Dbigdata.propertyFile=/opt/blazegraph/RWStore.properties", "-jar", "/opt/blazegraph/bigdata-bundled.jar"]
 
 # Expose Default Port
 EXPOSE 9999
