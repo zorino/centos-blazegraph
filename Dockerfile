@@ -13,7 +13,7 @@ ENV GRAPH_HOME /mnt/graphs
 # Install bigdata bundled (blazegraph) + utils
 RUN mkdir -p /opt/blazegraph/utils
 
-RUN curl -L http://downloads.sourceforge.net/project/bigdata/bigdata/1.5.1/bigdata-bundled.jar -o /opt/blazegraph/bigdata-bundled.jar
+RUN curl -L http://sourceforge.net/projects/bigdata/files/bigdata/1.5.3/bigdata-bundled.jar -o /opt/blazegraph/bigdata-bundled.jar
 
 ADD RWStore.properties /opt/blazegraph/
 ADD utils/load-graph.sh /opt/blazegraph/utils/
