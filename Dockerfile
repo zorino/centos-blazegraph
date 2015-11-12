@@ -12,6 +12,7 @@ ENV GRAPH_HOME /mnt/graphs
 
 # Install bigdata bundled (blazegraph) + utils
 RUN mkdir -p /opt/blazegraph/utils
+ENV PATH /opt/blazegraph/utils/:$PATH
 
 RUN curl -L http://sourceforge.net/projects/bigdata/files/bigdata/1.5.3/bigdata-bundled.jar -o /opt/blazegraph/bigdata-bundled.jar
 
@@ -22,7 +23,7 @@ ADD utils/start-blazegraph.sh /opt/blazegraph/utils/
 RUN chmod -R 755 /opt/blazegraph/
 
 # Exec on start
-ENTRYPOINT ["/opt/blazegraph/utils/start-blazegraph.sh", "4g"]
+ENTRYPOINT ["start-blazegraph.sh", "4g"]
 
 # Expose Default Port
 EXPOSE 9999
