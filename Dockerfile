@@ -28,5 +28,5 @@ ENTRYPOINT ["start-blazegraph.sh", "4g"]
 # Expose Default Port
 EXPOSE 9999
 
-# Maintener
-MAINTAINER Maxime Deraspe
+# Maintainer
+MAINTAINER zorino <maximilien1er@gmail.com>
