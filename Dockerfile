@@ -1,8 +1,11 @@
 # Linux OS
 FROM centos:centos7
 
+# Maintainer
+MAINTAINER zorino <maximilien1er@gmail.com>
+
 # Install Java
-RUN yum install -y java sysstat
+RUN yum install -y java sysstat && yum clean all
 
 # Create volume for graph data
 RUN mkdir /mnt/graphs
@@ -27,6 +30,3 @@ ENTRYPOINT ["start-blazegraph.sh", "4g"]
 
 # Expose Default Port
 EXPOSE 9999
-
-# Maintainer
-MAINTAINER zorino <maximilien1er@gmail.com>
